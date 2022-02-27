@@ -1,0 +1,908 @@
+
+%  Tell prolog that known/3 will be added later by asserta
+:- dynamic known/3.
+
+% Mapping Cities to countries
+country(kiev, ukr).
+country(tirana, alb).
+country(vienna, aut).
+country(brussels, bel).
+country(sofia, bgr).
+country(zagreb, hrv).
+country(nicosia, cyp).
+country(prague, cze).
+country(copenhagen, dnk).
+country(helsinki, fin).
+country(paris, fra).
+country(athens, grc).
+country(budapest, hun).
+country(reykjavik, isl).
+country(dublin, irl).
+country(rome, ita).
+country(riga, lva).
+country(amsterdam, nld).
+country(skopje, mkd).
+country(oslo, nor).
+country(warsaw, pol).
+country(lisbon, prt).
+country(bucharest, rou).
+country(moscow, rus).
+country(belgrade, srb).
+country(bratislava, svk).
+country(madrid, esp).
+country(stockholm, swe).
+country(bern, che).
+country(london, gbr).
+
+% Precipitation Information
+ 
+precipitation(tirana, high).
+precipitation(vienna, low).
+precipitation(brussels, high).
+precipitation(sofia, low).
+precipitation(zagreb, high).
+precipitation(nicosia, low).
+precipitation(prague, high).
+precipitation(copenhagen, high).
+precipitation(helsinki, high).
+precipitation(paris, high).
+precipitation(athens, low).
+precipitation(budapest, low).
+precipitation(reykjavik, high).
+precipitation(dublin, low).
+precipitation(rome, low).
+precipitation(riga, low).
+precipitation(amsterdam, high).
+precipitation(skopje, high).
+precipitation(oslo, high).
+precipitation(warsaw, low).
+precipitation(lisbon, high).
+precipitation(bucharest, high).
+precipitation(moscow, low).
+precipitation(belgrade, low).
+precipitation(bratislava, low).
+precipitation(madrid, low).
+precipitation(stockholm, high).
+precipitation(bern, low).
+precipitation(kiev, high).
+precipitation(london, high).
+
+% Temperature Information
+ 
+temperature(tirana, low, january).
+temperature(tirana, low, february).
+temperature(tirana, low, march).
+temperature(tirana, low, april).
+temperature(tirana, low, may).
+temperature(tirana, low, june).
+temperature(tirana, moderate, july).
+temperature(tirana, moderate, august).
+temperature(tirana, moderate, september).
+temperature(tirana, low, october).
+temperature(tirana, low, november).
+temperature(tirana, low, december).
+temperature(vienna, low, january).
+temperature(vienna, low, february).
+temperature(vienna, low, march).
+temperature(vienna, low, april).
+temperature(vienna, moderate, may).
+temperature(vienna, moderate, june).
+temperature(vienna, moderate, july).
+temperature(vienna, moderate, august).
+temperature(vienna, moderate, september).
+temperature(vienna, low, october).
+temperature(vienna, low, november).
+temperature(vienna, low, december).
+temperature(brussels, low, january).
+temperature(brussels, low, february).
+temperature(brussels, low, march).
+temperature(brussels, low, april).
+temperature(brussels, low, may).
+temperature(brussels, moderate, june).
+temperature(brussels, moderate, july).
+temperature(brussels, moderate, august).
+temperature(brussels, moderate, september).
+temperature(brussels, low, october).
+temperature(brussels, low, november).
+temperature(brussels, low, december).
+temperature(sofia, low, january).
+temperature(sofia, low, february).
+temperature(sofia, low, march).
+temperature(sofia, low, april).
+temperature(sofia, moderate, may).
+temperature(sofia, moderate, june).
+temperature(sofia, moderate, july).
+temperature(sofia, moderate, august).
+temperature(sofia, moderate, september).
+temperature(sofia, low, october).
+temperature(sofia, low, november).
+temperature(sofia, low, december).
+temperature(zagreb, low, january).
+temperature(zagreb, low, february).
+temperature(zagreb, low, march).
+temperature(zagreb, low, april).
+temperature(zagreb, moderate, may).
+temperature(zagreb, moderate, june).
+temperature(zagreb, moderate, july).
+temperature(zagreb, moderate, august).
+temperature(zagreb, moderate, september).
+temperature(zagreb, low, october).
+temperature(zagreb, low, november).
+temperature(zagreb, low, december).
+temperature(nicosia, low, january).
+temperature(nicosia, low, february).
+temperature(nicosia, low, march).
+temperature(nicosia, low, april).
+temperature(nicosia, low, may).
+temperature(nicosia, low, june).
+temperature(nicosia, moderate, july).
+temperature(nicosia, moderate, august).
+temperature(nicosia, low, september).
+temperature(nicosia, low, october).
+temperature(nicosia, low, november).
+temperature(nicosia, low, december).
+temperature(prague, low, january).
+temperature(prague, low, february).
+temperature(prague, low, march).
+temperature(prague, low, april).
+temperature(prague, low, may).
+temperature(prague, moderate, june).
+temperature(prague, moderate, july).
+temperature(prague, moderate, august).
+temperature(prague, low, september).
+temperature(prague, low, october).
+temperature(prague, low, november).
+temperature(prague, low, december).
+temperature(copenhagen, low, january).
+temperature(copenhagen, low, february).
+temperature(copenhagen, low, march).
+temperature(copenhagen, low, april).
+temperature(copenhagen, low, may).
+temperature(copenhagen, low, june).
+temperature(copenhagen, moderate, july).
+temperature(copenhagen, moderate, august).
+temperature(copenhagen, low, september).
+temperature(copenhagen, low, october).
+temperature(copenhagen, low, november).
+temperature(copenhagen, low, december).
+temperature(helsinki, low, january).
+temperature(helsinki, low, february).
+temperature(helsinki, low, march).
+temperature(helsinki, low, april).
+temperature(helsinki, low, may).
+temperature(helsinki, moderate, june).
+temperature(helsinki, moderate, july).
+temperature(helsinki, moderate, august).
+temperature(helsinki, low, september).
+temperature(helsinki, low, october).
+temperature(helsinki, low, november).
+temperature(helsinki, low, december).
+temperature(paris, low, january).
+temperature(paris, low, february).
+temperature(paris, low, march).
+temperature(paris, low, april).
+temperature(paris, low, may).
+temperature(paris, moderate, june).
+temperature(paris, moderate, july).
+temperature(paris, moderate, august).
+temperature(paris, moderate, september).
+temperature(paris, low, october).
+temperature(paris, low, november).
+temperature(paris, low, december).
+temperature(athens, low, january).
+temperature(athens, low, february).
+temperature(athens, low, march).
+temperature(athens, moderate, april).
+temperature(athens, moderate, may).
+temperature(athens, moderate, june).
+temperature(athens, high, july).
+temperature(athens, high, august).
+temperature(athens, high, september).
+temperature(athens, moderate, october).
+temperature(athens, moderate, november).
+temperature(athens, low, december).
+temperature(budapest, low, january).
+temperature(budapest, low, february).
+temperature(budapest, low, march).
+temperature(budapest, low, april).
+temperature(budapest, moderate, may).
+temperature(budapest, moderate, june).
+temperature(budapest, moderate, july).
+temperature(budapest, moderate, august).
+temperature(budapest, moderate, september).
+temperature(budapest, low, october).
+temperature(budapest, low, november).
+temperature(budapest, low, december).
+temperature(reykjavik, low, january).
+temperature(reykjavik, low, february).
+temperature(reykjavik, low, march).
+temperature(reykjavik, low, april).
+temperature(reykjavik, low, may).
+temperature(reykjavik, low, june).
+temperature(reykjavik, low, july).
+temperature(reykjavik, low, august).
+temperature(reykjavik, low, september).
+temperature(reykjavik, low, october).
+temperature(reykjavik, low, november).
+temperature(reykjavik, low, december).
+temperature(dublin, low, january).
+temperature(dublin, low, february).
+temperature(dublin, low, march).
+temperature(dublin, low, april).
+temperature(dublin, low, may).
+temperature(dublin, low, june).
+temperature(dublin, moderate, july).
+temperature(dublin, moderate, august).
+temperature(dublin, low, september).
+temperature(dublin, low, october).
+temperature(dublin, low, november).
+temperature(dublin, low, december).
+temperature(rome, low, january).
+temperature(rome, low, february).
+temperature(rome, low, march).
+temperature(rome, low, april).
+temperature(rome, moderate, may).
+temperature(rome, moderate, june).
+temperature(rome, high, july).
+temperature(rome, high, august).
+temperature(rome, moderate, september).
+temperature(rome, moderate, october).
+temperature(rome, low, november).
+temperature(rome, low, december).
+temperature(riga, low, january).
+temperature(riga, low, february).
+temperature(riga, low, march).
+temperature(riga, low, april).
+temperature(riga, low, may).
+temperature(riga, low, june).
+temperature(riga, moderate, july).
+temperature(riga, moderate, august).
+temperature(riga, low, september).
+temperature(riga, low, october).
+temperature(riga, low, november).
+temperature(riga, low, december).
+temperature(amsterdam, low, january).
+temperature(amsterdam, low, february).
+temperature(amsterdam, low, march).
+temperature(amsterdam, low, april).
+temperature(amsterdam, low, may).
+temperature(amsterdam, moderate, june).
+temperature(amsterdam, moderate, july).
+temperature(amsterdam, moderate, august).
+temperature(amsterdam, moderate, september).
+temperature(amsterdam, low, october).
+temperature(amsterdam, low, november).
+temperature(amsterdam, low, december).
+temperature(skopje, low, january).
+temperature(skopje, low, february).
+temperature(skopje, low, march).
+temperature(skopje, low, april).
+temperature(skopje, moderate, may).
+temperature(skopje, moderate, june).
+temperature(skopje, high, july).
+temperature(skopje, high, august).
+temperature(skopje, moderate, september).
+temperature(skopje, low, october).
+temperature(skopje, low, november).
+temperature(skopje, low, december).
+temperature(oslo, low, january).
+temperature(oslo, low, february).
+temperature(oslo, low, march).
+temperature(oslo, low, april).
+temperature(oslo, low, may).
+temperature(oslo, low, june).
+temperature(oslo, moderate, july).
+temperature(oslo, moderate, august).
+temperature(oslo, low, september).
+temperature(oslo, low, october).
+temperature(oslo, low, november).
+temperature(oslo, low, december).
+temperature(warsaw, low, january).
+temperature(warsaw, low, february).
+temperature(warsaw, low, march).
+temperature(warsaw, low, april).
+temperature(warsaw, low, may).
+temperature(warsaw, moderate, june).
+temperature(warsaw, moderate, july).
+temperature(warsaw, moderate, august).
+temperature(warsaw, low, september).
+temperature(warsaw, low, october).
+temperature(warsaw, low, november).
+temperature(warsaw, low, december).
+temperature(lisbon, low, january).
+temperature(lisbon, low, february).
+temperature(lisbon, low, march).
+temperature(lisbon, moderate, april).
+temperature(lisbon, moderate, may).
+temperature(lisbon, moderate, june).
+temperature(lisbon, moderate, july).
+temperature(lisbon, moderate, august).
+temperature(lisbon, moderate, september).
+temperature(lisbon, moderate, october).
+temperature(lisbon, low, november).
+temperature(lisbon, low, december).
+temperature(bucharest, low, january).
+temperature(bucharest, low, february).
+temperature(bucharest, low, march).
+temperature(bucharest, low, april).
+temperature(bucharest, moderate, may).
+temperature(bucharest, moderate, june).
+temperature(bucharest, high, july).
+temperature(bucharest, moderate, august).
+temperature(bucharest, moderate, september).
+temperature(bucharest, low, october).
+temperature(bucharest, low, november).
+temperature(bucharest, low, december).
+temperature(moscow, low, january).
+temperature(moscow, low, february).
+temperature(moscow, low, march).
+temperature(moscow, low, april).
+temperature(moscow, low, may).
+temperature(moscow, moderate, june).
+temperature(moscow, moderate, july).
+temperature(moscow, moderate, august).
+temperature(moscow, low, september).
+temperature(moscow, low, october).
+temperature(moscow, low, november).
+temperature(moscow, low, december).
+temperature(belgrade, low, january).
+temperature(belgrade, low, february).
+temperature(belgrade, low, march).
+temperature(belgrade, low, april).
+temperature(belgrade, moderate, may).
+temperature(belgrade, moderate, june).
+temperature(belgrade, moderate, july).
+temperature(belgrade, moderate, august).
+temperature(belgrade, moderate, september).
+temperature(belgrade, low, october).
+temperature(belgrade, low, november).
+temperature(belgrade, low, december).
+temperature(bratislava, low, january).
+temperature(bratislava, low, february).
+temperature(bratislava, low, march).
+temperature(bratislava, low, april).
+temperature(bratislava, moderate, may).
+temperature(bratislava, moderate, june).
+temperature(bratislava, moderate, july).
+temperature(bratislava, moderate, august).
+temperature(bratislava, moderate, september).
+temperature(bratislava, low, october).
+temperature(bratislava, low, november).
+temperature(bratislava, low, december).
+temperature(madrid, low, january).
+temperature(madrid, low, february).
+temperature(madrid, low, march).
+temperature(madrid, low, april).
+temperature(madrid, moderate, may).
+temperature(madrid, moderate, june).
+temperature(madrid, high, july).
+temperature(madrid, high, august).
+temperature(madrid, moderate, september).
+temperature(madrid, moderate, october).
+temperature(madrid, low, november).
+temperature(madrid, low, december).
+temperature(stockholm, low, january).
+temperature(stockholm, low, february).
+temperature(stockholm, low, march).
+temperature(stockholm, low, april).
+temperature(stockholm, low, may).
+temperature(stockholm, moderate, june).
+temperature(stockholm, moderate, july).
+temperature(stockholm, moderate, august).
+temperature(stockholm, low, september).
+temperature(stockholm, low, october).
+temperature(stockholm, low, november).
+temperature(stockholm, low, december).
+temperature(bern, low, january).
+temperature(bern, low, february).
+temperature(bern, low, march).
+temperature(bern, low, april).
+temperature(bern, low, may).
+temperature(bern, moderate, june).
+temperature(bern, moderate, july).
+temperature(bern, moderate, august).
+temperature(bern, low, september).
+temperature(bern, low, october).
+temperature(bern, low, november).
+temperature(bern, low, december).
+temperature(kiev, low, january).
+temperature(kiev, low, february).
+temperature(kiev, low, march).
+temperature(kiev, low, april).
+temperature(kiev, moderate, may).
+temperature(kiev, moderate, june).
+temperature(kiev, moderate, july).
+temperature(kiev, moderate, august).
+temperature(kiev, low, september).
+temperature(kiev, low, october).
+temperature(kiev, low, november).
+temperature(kiev, low, december).
+temperature(london, low, january).
+temperature(london, low, february).
+temperature(london, low, march).
+temperature(london, low, april).
+temperature(london, low, may).
+temperature(london, moderate, june).
+temperature(london, moderate, july).
+temperature(london, moderate, august).
+temperature(london, moderate, september).
+temperature(london, low, october).
+temperature(london, low, november).
+temperature(london, low, december).
+
+% Purchasing Power Information
+purchasingpower(ukr, 0.285).
+purchasingpower(alb, 0.377).
+purchasingpower(aut, 0.873).
+purchasingpower(bel, 0.858).
+purchasingpower(bgr, 0.409).
+purchasingpower(hrv, 0.485).
+purchasingpower(cyp, 0.692).
+purchasingpower(cze, 0.545).
+purchasingpower(dnk, 1.008).
+purchasingpower(fin, 0.96).
+purchasingpower(fra, 0.836).
+purchasingpower(grc, 0.621).
+purchasingpower(hun, 0.481).
+purchasingpower(isl, 1.073).
+purchasingpower(irl, 0.895).
+purchasingpower(ita, 0.757).
+purchasingpower(lva, 0.55).
+purchasingpower(nld, 0.883).
+purchasingpower(mkd, 0.348).
+purchasingpower(nor, 1.065).
+purchasingpower(pol, 0.457).
+purchasingpower(prt, 0.651).
+purchasingpower(rou, 0.404).
+purchasingpower(rus, 0.359).
+purchasingpower(srb, 0.399).
+purchasingpower(svk, 0.602).
+purchasingpower(esp, 0.706).
+purchasingpower(swe, 0.952).
+purchasingpower(che, 1.214).
+purchasingpower(gbr, 0.897).
+
+% Safety Index Data
+%% Metrics Between one and zero
+safety(ukr, 0.6912384153395814).
+safety(alb, 0.8247456490391201).
+safety(aut, 0.8846681872836443).
+safety(bel, 0.8075503225244371).
+safety(bgr, 0.7407744328977771).
+safety(hrv, 0.8388545996181415).
+safety(cyp, 0.8439289992917586).
+safety(cze, 0.8716877845439829).
+safety(dnk, 0.8297593001222785).
+safety(fin, 0.9571864896235086).
+safety(fra, 0.80782643940078).
+safety(grc, 0.7978380295779214).
+safety(hun, 0.83352028293918).
+safety(isl, 0.9341357955531143).
+safety(irl, 0.85398148693133).
+safety(ita, 0.7877159439526543).
+safety(lva, 0.8298007326254871).
+safety(nld, 0.8566745976325185).
+safety(mkd, 0.7395962520365585).
+safety(nor, 0.8763775951531).
+safety(pol, 0.8031016202918242).
+safety(prt, 0.8972166855066057).
+safety(rou, 0.8510406370632185).
+safety(rus, 0.7353486347176086).
+safety(srb, 0.7830703499470815).
+safety(svk, 0.8030219868524714).
+safety(esp, 0.8771983457646086).
+safety(swe, 0.8388360393343357).
+safety(che, 0.9135008427485314).
+safety(gbr, 0.8259732245144057).
+
+% Freedom Index Data
+%% Metrics between one and zero
+freedom(ukr, 0.67).
+freedom(alb, 0.67).
+freedom(aut, 1.0).
+freedom(bel, 1.0).
+freedom(bgr, 1.0).
+freedom(hrv, 1.0).
+freedom(cyp, 1.0).
+freedom(cze, 1.0).
+freedom(dnk, 1.0).
+freedom(fin, 1.0).
+freedom(fra, 1.0).
+freedom(grc, 1.0).
+freedom(hun, 0.67).
+freedom(isl, 1.0).
+freedom(irl, 1.0).
+freedom(ita, 1.0).
+freedom(lva, 1.0).
+freedom(nld, 1.0).
+freedom(mkd, 0.67).
+freedom(nor, 1.0).
+freedom(pol, 1.0).
+freedom(prt, 1.0).
+freedom(rou, 1.0).
+freedom(rus, 0.33).
+freedom(srb, 0.67).
+freedom(svk, 1.0).
+freedom(esp, 1.0).
+freedom(swe, 1.0).
+freedom(che, 1.0).
+freedom(gbr, 1.0).
+
+% Healthcare Index Data
+healthcare(ukr, 0.9315950897966301).
+healthcare(alb, 0.7538919841657614).
+healthcare(aut, 0.9980592398485157).
+healthcare(bel, 0.9341830321262286).
+healthcare(bgr, 0.9614543903144843).
+healthcare(hrv, 0.9040877470070628).
+healthcare(cyp, 0.81190944215871).
+healthcare(cze, 0.9801582657584057).
+healthcare(dnk, 0.8842201213744515).
+healthcare(fin, 0.9099863226128129).
+healthcare(fra, 0.9343878957808901).
+healthcare(grc, 0.9270777752526929).
+healthcare(hun, 0.9483837258448086).
+healthcare(isl, 0.88682138861056).
+healthcare(irl, 0.8339050854670943).
+healthcare(ita, 0.8970226422120371).
+healthcare(lva, 0.9091750924979729).
+healthcare(nld, 0.9036066852569943).
+healthcare(mkd, 0.8593246283488913).
+healthcare(nor, 0.9165575580806257).
+healthcare(pol, 0.8998787798501928).
+healthcare(prt, 0.8630552276810256).
+healthcare(rou, 0.8774393582161786).
+healthcare(rus, 0.9599586432371414).
+healthcare(srb, 0.8948129631049843).
+healthcare(svk, 0.88636253967996).
+healthcare(esp, 0.88499284561781).
+healthcare(swe, 0.8863548972578014).
+healthcare(che, 0.9349368948923271).
+healthcare(gbr, 0.8311731646437986).
+
+% ICT Index Data
+ict(ukr, 4.518918585965).
+ict(alb, 4.69106095925635).
+ict(aut, 6.06821633933553).
+ict(bel, 5.8314582950759).
+ict(bgr, 5.19054506171656).
+ict(hrv, 5.17362339329784).
+ict(cyp, 5.91809304373417).
+ict(cze, 5.67669674048324).
+ict(dnk, 6.38801344465584).
+ict(fin, 6.12372670186605).
+ict(fra, 5.92167215948012).
+ict(grc, 5.21650121467382).
+ict(hun, 5.27226057881933).
+ict(isl, 6.31894298533766).
+ict(irl, 5.73897774227675).
+ict(ita, 5.47826526409426).
+ict(lva, 5.7074717983163).
+ict(nld, 6.25303821028881).
+ict(mkd, 4.66801365781361).
+ict(nor, 6.29607890846992).
+ict(pol, 5.51208863255369).
+ict(prt, 5.54539180377066).
+ict(rou, 5.16379860709095).
+ict(rus, 5.26881899389129).
+ict(srb, 5.0924581334245).
+ict(svk, 5.6656824069218).
+ict(esp, 5.78034397585147).
+ict(swe, 6.38454351842991).
+ict(che, 6.34024474263676).
+ict(gbr, 6.18127496078223).
+
+% Ground Infrastructure Data
+ginfra(ukr, 3.13891270949531).
+ginfra(alb, 3.11250022639199).
+ginfra(aut, 5.22499276115241).
+ginfra(bel, 5.45975552486506).
+ginfra(bgr, 3.20717646275071).
+ginfra(hrv, 3.86199181582068).
+ginfra(cyp, 4.44675081574331).
+ginfra(cze, 4.94318484112374).
+ginfra(dnk, 5.33418445770105).
+ginfra(fin, 4.53190128321133).
+ginfra(fra, 5.55691580938333).
+ginfra(grc, 3.84875631800191).
+ginfra(hun, 4.15227344267146).
+ginfra(isl, 4.00527886145959).
+ginfra(irl, 4.47902613174087).
+ginfra(ita, 4.67220638842733).
+ginfra(lva, 4.18568889691553).
+ginfra(nld, 6.13963151349916).
+ginfra(mkd, 2.61785730964514).
+ginfra(nor, 3.86436717842599).
+ginfra(pol, 4.25747097440363).
+ginfra(prt, 4.18209428396091).
+ginfra(rou, 3.0987767849501).
+ginfra(rus, 3.32731331316587).
+ginfra(srb, 3.02245860866472).
+ginfra(svk, 4.16471063653455).
+ginfra(esp, 5.23877621442136).
+ginfra(swe, 4.66283416907163).
+ginfra(che, 6.06515853208211).
+ginfra(gbr, 5.3633711017583).
+
+
+% The code below implements the prompting to ask the user:
+
+
+preferrain(X) :- ask(preferrain, X).
+prefertemperature(X) :- ask(prefertemperature, X).
+stayoutdoors(X) :- ask(stayoutdoors, X).
+travelmonth(X) :- ask(travelmonth, X).
+budget(X) :- ask(budget, X).
+gender(X) :- ask(gender, X).
+family(X) :- ask(family, X).
+kids(X) :- ask(kids, X).
+age(X) :- ask(age, X).
+chroniccondition(X) :- ask(chroniccondition, X).
+askcurrentcountry(X) :- ask(askcurrentcountry, X).
+askcomfortimportance(X) :- ask(askcomfortimportance, X).
+askfreedomimportance(X) :- ask(askfreedomimportance, X).
+    
+
+% Current Country Options:
+currentcountry(ukr):- askcurrentcountry(ukr).
+currentcountry(alb):- askcurrentcountry(alb).
+currentcountry(aut):- askcurrentcountry(aut).
+currentcountry(bel):- askcurrentcountry(bel).
+currentcountry(bgr):- askcurrentcountry(bgr).
+currentcountry(hrv):- askcurrentcountry(hrv).
+currentcountry(cyp):- askcurrentcountry(cyp).
+currentcountry(cze):- askcurrentcountry(cze).
+currentcountry(dnk):- askcurrentcountry(dnk).
+currentcountry(fin):- askcurrentcountry(fin).
+currentcountry(fra):- askcurrentcountry(fra).
+currentcountry(grc):- askcurrentcountry(grc).
+currentcountry(hun):- askcurrentcountry(hun).
+currentcountry(isl):- askcurrentcountry(isl).
+currentcountry(irl):- askcurrentcountry(irl).
+currentcountry(ita):- askcurrentcountry(ita).
+currentcountry(lva):- askcurrentcountry(lva).
+currentcountry(nld):- askcurrentcountry(nld).
+currentcountry(mkd):- askcurrentcountry(mkd).
+currentcountry(nor):- askcurrentcountry(nor).
+currentcountry(pol):- askcurrentcountry(pol).
+currentcountry(prt):- askcurrentcountry(prt).
+currentcountry(rou):- askcurrentcountry(rou).
+currentcountry(rus):- askcurrentcountry(rus).
+currentcountry(srb):- askcurrentcountry(srb).
+currentcountry(svk):- askcurrentcountry(svk).
+currentcountry(esp):- askcurrentcountry(esp).
+currentcountry(swe):- askcurrentcountry(swe).
+currentcountry(che):- askcurrentcountry(che).
+currentcountry(gbr):- askcurrentcountry(gbr).
+
+
+% Comfort Level Importance
+comfortimportance(1):- askcomfortimportance(1).
+comfortimportance(2):- askcomfortimportance(2).
+comfortimportance(3):- askcomfortimportance(3).
+
+
+% Freedom Level Importance
+freedomimportance(1):- askfreedomimportance(1).
+freedomimportance(2):- askfreedomimportance(2).
+freedomimportance(3):- askfreedomimportance(3).
+freedomimportance(4):- askfreedomimportance(4).
+freedomimportance(5):- askfreedomimportance(5).
+
+
+% Hypothitical City 
+precipitation(wonder, high). 
+temperature(wonder, high, january).
+country(wonder, land).
+purchasingpower(land, 0.2).
+
+% Importance Rating
+outdoorimporantance(1).
+tempratureimportance(3).
+totalweather(T) :- outdoorimporantance(V1),
+                tempratureimportance(V2),
+                T is V1 + V2.
+
+% Dynamic Model
+%% Outdoor
+
+
+suitable(C, outdoor, 1) :- 
+    stayoutdoors(short); 
+    (precipitation(C, high), preferrain(any));
+    precipitation(C, low).
+suitable(C, outdoor, 0) :- 
+    stayoutdoors(long),
+    precipitation(C, high), preferrain(low).  
+       
+%% Temperature
+
+
+suitable(C, temperature, 1) :- temperature(C, L, M), prefertemperature(L), travelmonth(M).
+suitable(C, temperature, 0.5) :- temperature(C, high, M), prefertemperature(moderate), travelmonth(M).
+suitable(C, temperature, 0.5) :- temperature(C, low, M), prefertemperature(moderate), travelmonth(M).
+suitable(C, temperature, 0.5) :- temperature(C, moderate, M), prefertemperature(high), travelmonth(M).
+suitable(C, temperature, 0) :- temperature(C, low, M), prefertemperature(high), travelmonth(M).
+suitable(C, temperature, 0.5) :- temperature(C, moderate, M), prefertemperature(low), travelmonth(M).
+suitable(C, temperature, 0) :- temperature(C, high, M), prefertemperature(low), travelmonth(M).
+    
+%% Overall Climate Assessments
+
+
+suitable(C, climate, P) :- suitable(C, temperature, T),
+                        suitable(C, outdoor, O), 
+                        outdoorimporantance(Oi),
+                        tempratureimportance(Ti),
+                        totalweather(To),
+                        P is ((Ti * T) + (Oi * O)) / To.
+    
+% Infrastructure & Accessibility
+%% ICT
+
+
+ictvalue(C, P):- country(C, T),
+                currentcountry(H), 
+                ict(T, TV), 
+                ict(H, HV),
+                1 > TV/HV,
+                P is TV/HV.
+
+ictvalue(C, 1):- country(C, T),
+                currentcountry(H), 
+                ict(T, TV), 
+                ict(H, HV),
+                1 =< TV/HV.
+
+suitable(C, ict, Ptotal):- ictvalue(C, P), 
+                        comfortimportance(Pi), 
+                        Ptotal is 1 - ((1 - P)/(4 - Pi)).
+                           
+%% Ground Infrastructure
+
+ginfravalue(C, P):- country(C, T),
+                    currentcountry(H), 
+                    ginfra(T, TV), 
+                    ginfra(H, HV),
+                    1 > TV/HV,
+                    P is TV/HV.
+
+ginfravalue(C, 1):- country(C, T),
+                    currentcountry(H), 
+                    ginfra(T, TV), 
+                    ginfra(H, HV),
+                    1 =< TV/HV.
+                    
+suitable(C, ginfra, Ptotal):- ginfravalue(C, P),
+                            comfortimportance(Pi),
+                            Ptotal is 1 - ((1 - P)/(4 - Pi)).
+    
+%% Health Care System
+
+
+healthimportance(5):- chroniccondition(true); kids(true); age(5).
+healthimportance(1):- age(1), kids(false), chroniccondition(false).
+healthimportance(2.5):- age(2), kids(false), chroniccondition(false).
+healthimportance(3):- age(3), kids(false), chroniccondition(false).
+healthimportance(4.5):- age(4), kids(false), chroniccondition(false).
+
+suitable(C, health, Ph):-  country(C, T),
+                        healthcare(T, P), 
+                        healthimportance(Pi),
+                        Ph is 1 - ((1 - P)/(6 - Pi)).
+    
+
+
+suitable(C, infra, Ptotal):- suitable(C, health, P1),
+                            suitable(C, ginfra, P2),
+                            suitable(C, ict, P3),
+                            Ptotal is P1*P2*P3.
+    
+% Political & Economic consideration
+%% Purchasing Power
+
+
+affordabilityvalue(C, P):- country(C, T),
+                    currentcountry(H), 
+                    purchasingpower(T, TV), 
+                    purchasingpower(H, HV),
+                    P is TV/HV.
+
+affordability(C, affordable):- affordabilityvalue(C, P), P =< 1.
+affordability(C, double):- affordabilityvalue(C, P), P =< 2, 1 < P.
+affordability(C, triple):- affordabilityvalue(C, P), P =< 3, 2 < P.
+affordability(C, expensive):- affordabilityvalue(C, P), P > 3.
+
+
+suitable(C, budget, 0.25):- budget(affordable), affordability(C, expensive).
+suitable(C, budget, 0.5):- budget(double), affordability(C, expensive).
+suitable(C, budget, 0.5):- budget(affordable), affordability(C, triple).
+suitable(C, budget, 0.75):- budget(affordable), affordability(C, double).
+suitable(C, budget, 0.75):- budget(double), affordability(C, triple).
+suitable(C, budget, 0.75):- budget(triple), affordability(C, expensive).
+suitable(C, budget, 1):- budget(any);
+                        budget(S), affordability(C, S); 
+                        budget(double), affordability(C, affordable); 
+                        budget(triple), affordability(C, affordable); 
+                        budget(triple), affordability(C, double).
+    
+%% Safety Index
+%% Safety Importance is between 1 and 3 compared to the other factors
+
+
+safetyimportance(2.5) :- family(true), kids(true).
+safetyimportance(2) :- family(true).
+safetyimportance(1.5) :- gender(female).
+safetyimportance(1) :- gender(male).
+
+suitable(C, safety, Ps):- country(C, T),
+                        safety(T, P),
+                        safetyimportance(Pi),
+                        Ps is 1 - ((1 - P)/(3.5 - Pi)).
+    
+% Freedom Index
+
+
+suitable(C, freedom, Pf):- country(C, T),
+                        freedom(T, P), 
+                        freedomimportance(Pi),
+                        Pf is 1 - ((1 - P)/(6 - Pi)).
+    
+% Overall Political & Economic Assessment
+% suitable(C, pe, Ptotal) :- suitable(C, budget, P1),
+%                           suitable(C, safety, P2),
+%                           safetyimportance(Pi2),
+%                           Ptotal is ((Pi2*P2 + P1)/(1+Pi2)).
+
+
+suitable(C, pe, Ptotal) :- suitable(C, budget, P1),
+                        suitable(C, safety, P2),
+                        suitable(C, freedom, P3),
+                        Ptotal is P1*P2*P3.
+    
+
+% Overall City Assessments
+
+
+recommend(C, Ptotal) :- suitable(C, climate, P1),
+                        suitable(C, pe, P2),
+                        suitable(C, infra, P3),
+                        Ptotal is (P1 + P2 + P3)/3.
+    
+
+% Asking clauses
+
+
+multivalued(none).
+
+
+
+ask(A, V):-
+known(yes, A, V), % succeed if true
+!.	% stop looking
+
+ask(A, V):-
+known(_, A, V), % fail if false
+!, 
+fail.
+
+% If not multivalued, and already known, don't ask again for a different value.
+ask(A, V):-
+\+multivalued(A),
+known(yes, A, V2),
+V \== V2,
+!.
+
+ask(A, V):-
+read_py(A,V,Y), % get the answer
+asserta(known(Y, A, V)), % remember it
+Y == yes. % succeed or fail
+
+ask(A, V):-
+not multivalued(A),
+known(yes, A, V2),
+V \== V2,
+!,
+fail.
+     
+
+    
