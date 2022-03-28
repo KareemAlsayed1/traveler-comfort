@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import RingLoader from "react-spinners/RingLoader";
 import MapChart from "./MapChart";
 import ReactTooltip from "react-tooltip";
-
 
 export default function App() {
 	const [currentQuestion, setCurrentQuestion] = useState({
@@ -14,11 +13,21 @@ export default function App() {
 	const [loading, setLoading] = useState(false);
 	const [showResults, setShowResults] = useState(false);
 	const [resultsData, setResultsData] = useState({});
-	const [tabContent, setTabContent] = useState("");
+	const [questionNumber, setQuestionNumber] = useState(1);
+	const [tabContent, setTabContent] = useState({
+		Overall:"",
+		City_name:"",
+		Climate:"",
+		PE:"",
+		Infra:"",
+		Country:"",
+	});
 
-	
+
 	const handleAnswerOptionClick = (data) => {
 		setLoading(true);
+		// console.log(currentQuestion);
+		// data["questionName"] = currentQuestion.name;
 		const fetchAPI = '/questions/next-question/';
 		fetch(fetchAPI, {
 			method: 'POST',
@@ -38,6 +47,7 @@ export default function App() {
 				setShowResults(true);
 			  }
 		}).finally(() => {
+			setQuestionNumber(questionNumber + 1);
 			setLoading(false);
 		});
 	};
@@ -61,6 +71,7 @@ export default function App() {
 				setShowResults(true);
 			  }
 		}).finally(() => {
+			setQuestionNumber(1);
 			setLoading(false);
 		});
 	}
@@ -68,21 +79,32 @@ export default function App() {
 		return (
 			<div>
 				<MapChart data={resultsData} setTooltipContent={setTabContent}/>
-				<ReactTooltip>{tabContent}</ReactTooltip>
+				{
+					tabContent ? (
+					<ReactTooltip multiline="true">
+						Location          				: {tabContent.City_name.charAt(0).toUpperCase() + tabContent.City_name.slice(1)}, {tabContent.Country}
+				   <br/>Overall Assessment				: {tabContent.Overall}%
+				   <br/>Climate Factors   				: {tabContent.Climate}%
+				   <br/>Political and Economic Factors : {tabContent.PE}%
+				   <br/>Infrastructure Factors			: {tabContent.Infra}%
+				   </ReactTooltip>
+					)  : 
+					<div>
+					</div>
+				}
 			</div>
 		)
-	} else{
+	} else {
 		return (
 			<div className='questions-body'>
 			<div className='app'>
-				{/* <button onClick={getQuestions}>hhhh</button> */}
 				{showIntroduction  ? (
 					<div className='introduction-section'>
 						<div className='introduction-title'>
 							Traveling Recommendations Expert System
 						</div>
 						< div className='introduction-subtext'>
-							It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over.
+						Welcome to our traveler recommendations! That web application would help assess potential travel destinations using AI Models in the Backend 😉. Given that our destinations assessment is personalized, you will start by building a personal traveler profile. You will answer a few questions, and then you will get access to an interactive world map to see our assessments. Currently, our systems only support some European Capital cities due to some data availability. Let's get you started!! 
 						</div>
 						<button className='start-button' onClick={handleStartClick}>
 							<span>Let's get started!</span>
@@ -98,15 +120,17 @@ export default function App() {
 						<>
 						<div className='question-section'>
 							<div className='question-count'>
-								<span>Question {1}</span>
+								<span>Question {questionNumber}</span>
 							</div>
 							<div className='question-text'>{currentQuestion.questionText}</div>
 						</div>
-						<div className='answer-section'>
-							{currentQuestion.answerOptions.map((answerOption) => (
-								<button onClick={() => handleAnswerOptionClick({questionName: currentQuestion.name, value: answerOption.value})}>{answerOption.answerText}</button>
-							))}
-						</div>
+						{(
+								<div className='answer-section'>
+									{currentQuestion.answerOptions.map((answerOption) => (
+									<button onClick={() => handleAnswerOptionClick({questionName: currentQuestion.name, value: answerOption.value})}>{answerOption.answerText}</button>
+									))}
+								</div>
+						)}
 						</> 
 					)
 				)}

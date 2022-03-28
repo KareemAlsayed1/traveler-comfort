@@ -7,12 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 * {
-  font-family: "Verdana", cursive, sans-serif;
-  color: #ffffff;
+  font-family: "Trebuchet MS", sans-serif;
 }
 
 .questions-body {
-  background-color: #7cc6fe;
+  background-color: #bae8e8;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,16 +19,16 @@ body {
 }
 
 .app {
-  background-color: #252d4a;
+  background-color: #152631;
   width: 600px;
-  min-height: 300px;
-  height: min-content;
+  height: 350px;
+  /* height: min-content; */
   border-radius: 15px;
   padding: 20px;
   box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: space-evenly;
-  
+  color: #EDF2F4;
 }
 
 .introduction-section {
@@ -47,33 +46,33 @@ body {
   align-self: center;
 }
 .loading-text{ 
-  font-size: 19px;
+  font-size: 23px;
   margin-top: 45px;
   margin-left: 15px;
   align-self: center;
 }
 
 .introduction-title{
-  font-size: 24px;
+  font-size: 35px;
   align-items: start;
   text-align: center;
 }
 
 .introduction-subtext{
-  font-size: 17px;
+  font-size: 19px;
   align-items: center;
   text-align: center;
   margin-top: 25px;
 }
 
 .start-button{
-  font-size: 17px;
+  font-size: 20px;
   text-align: center;
   align-items: center;
-  margin-top: 27px;
+  margin-top: 15px;
   display:table-cell;
   width: 200px;
-  height: 50%;
+  height: 70px;
   align-self: center;
 }
 
@@ -87,37 +86,42 @@ body {
 }
 
 .question-count span {
-  font-size: 28px;
+  font-size: 35px;
 }
 
 .question-text {
-  margin-bottom: 12px;
+  margin-bottom: 17px;
+  font-size: 22px;
+  padding-right: 13px;
 }
 
 .answer-section {
+  padding-top: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
+  overflow: auto;
 }
 
 button {
   width: 100%;
-  font-size: 16px;
+  font-size: 19px;
   color: #ffffff;
-  background-color: #252d4a;
+  background-color: #1d3342;
   border-radius: 15px;
   display: flex;
   padding: 5px;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  border: 5px solid #234668;
+  border: 5px solid #243f52;
   cursor: pointer;
+  margin-bottom: 35px;
 }
 
 
 button:hover {
-  background-color: #555e7d;
+  background-color: #243f52;
 }
 
 button:focus {

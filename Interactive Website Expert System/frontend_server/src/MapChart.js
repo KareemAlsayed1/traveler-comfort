@@ -25,6 +25,7 @@ const MapChart = (props) => {
         scale: 450
       }}
       height={440}
+      data-tip=""
     >
         {console.log(props)}
         <ZoomableGroup zoom={1}>
@@ -42,8 +43,13 @@ const MapChart = (props) => {
                 geography={geo}
                 fill={d ? colorScale(d["Overall"]) : "#dedede"}
                 onMouseEnter={() => {
-                    const { NAME, POP_EST } = geo.properties;
-                    props.setTooltipContent(`${NAME} — ${8999}`);
+                  if(d){
+                    d["Country"] = geo.properties["NAME"];
+                    props.setTooltipContent(d)
+                  }
+                  else{
+                    props.setTooltipContent(false)
+                  }
                 }}
                 onMouseLeave={() => {
                     props.setTooltipContent("");
@@ -55,7 +61,6 @@ const MapChart = (props) => {
                       outline: "none"
                     },
                     pressed: {
-                      fill: "#E42",
                       outline: "none"
                     }
                   }}
