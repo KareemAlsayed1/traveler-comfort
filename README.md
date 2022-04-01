@@ -28,9 +28,15 @@ traveler-comfort
 │   Archive Work --> This folder holds the early pervious stages of the project
 │   .gitignore
 │   README.md
-└───Alpha Version Climate Expert System --> This folder holds the early version of the AI Models
-│   │   frontend_server --> This Folder holds the frontend reactjs server
+└─── Interactive Website Expert System --> This is the main folder that holds the most recent version of the interactive website
+│   │   frontend_server --> This Folder holds the frontend Reactjs server
 │   │   prolog_backend --> This Folder holds the backend of the website including the prolog logic and knowledge base
-│   │
 └───────────────
 ```
+
+## Getting Started: 
+1. To get started, you need to clone the current github repo to your local machine.
+2. Ensure that Git is installed on your machine, and install git-lfs for downloading large files. You can run `brew install git-lfs` if you are using MacOS
+   - For more information to install that requriment, check out `https://git-lfs.github.com/`
+3. Run `git clone https://github.com/KareemAlsayed1/traveler-comfort.git`
+4. Go to the `Interactive Website Expert System`, and follow the steps mentioned in the README.md of each subfolder
