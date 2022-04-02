@@ -20,7 +20,6 @@ def create_kb():
     european_capitals = []
     current_available_cities = []
     city_codes = {}
-    cities_countries = ""
     with open('prolog_api/prolog_engine/cities_data/input_cities.csv') as csv_file:
         reader = csv.reader(csv_file)
         next(reader)
@@ -196,7 +195,7 @@ def create_kb():
     for option in range(1, 6):
         freedomimportance_options += f"freedomimportance({option}):- askfreedomimportance({option}).\n"
 
-    ## Messages & Options
+    ## Messages & Options (Legacy)
     msg_welcome = """
 
     __       __            __                                                    __ 
@@ -602,7 +601,7 @@ recommend(C, Ptotal) :- suitable(C, climate, P1),
                         suitable(C, infra, P3),
                         Ptotal is (P1 + P2 + P3)/3.
     """
-
+    # The master Knowledge Base text
     KB = """
 %  Tell prolog that known/3 will be added later by asserta
 :- dynamic known/3.
@@ -690,6 +689,7 @@ totalweather(T) :- outdoorimporantance(V1),
 """+ asking_clauses +""" 
 
     """
+    # Generating files to cache the date processing
     with open('prolog_api/prolog_engine/knowledge_base.txt', 'w') as f:
         f.write(KB)
     

@@ -17,4 +17,4 @@ This folder holds the frontend server, which is ReactJS. The main work and compo
 
 ***Important Note: You need to ensure that the Backend works appropriately to use the web application.***
 
-*** Important Note: Some of the stylings was adopted from this open-source GitHub repository: `https://github.com/chrisblakely01/quiz-app/tree/master/final`. However, the main components and functionality are entirely different. Thanks for Chris Blakely, https://github.com/chrisblakely01!***
+*** Important Note: Some of the stylings was adopted from this open-source GitHub repository: `https://github.com/chrisblakely01/quiz-app/tree/master/final`. However, the main components and functionality are entirely different. Thanks for Chris Blakely, https://github.com/chrisblakely01! ***

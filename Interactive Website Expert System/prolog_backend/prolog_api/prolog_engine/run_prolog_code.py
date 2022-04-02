@@ -4,7 +4,7 @@ from pyswip.easy import *
 import tempfile
 import csv
 
-
+# User profile variables
 kids_respone = None
 prefer_rain_response = None
 prefer_temp_response = None
@@ -34,6 +34,7 @@ empty_vars = {
     "freedomimportance_response": None
 }
 
+# Converting month numbers to names
 mon_number = {  1:'January',
                     2:'February',
                     3:'March',
@@ -47,6 +48,7 @@ mon_number = {  1:'January',
                     11:'November',
                     12:'December'}
 
+# Saving the options 
 options_budget = {
         1: "affordable",
         2: "double",
@@ -54,6 +56,7 @@ options_budget = {
         4: "any"
     }
 
+# Function to run the Prolog Engine and call the knowledge base creation
 def run_prolog(parameters):
     KB = create_kb()
     prolog = Prolog() # Global handle to interpreter
@@ -95,19 +98,6 @@ def run_prolog(parameters):
         return True
 
     def read_py(A,V,Y):
-        # global prefer_rain_response
-        # global prefer_temp_response
-        # global stay_outdoor_response
-        # global month_response
-        # global budget_response
-        # global family_respone
-        # global kids_respone
-        # global gender_response
-        # global age_response
-        # global chroniccondition_response
-        # global comfortimportance_response
-        # global currentcountry_response
-        # global freedomimportance_response
         global kids_respone
         if data_needed:
             # Skipping the steps
@@ -240,6 +230,7 @@ def run_prolog(parameters):
         else:
             return False
     
+    # Legacy code
     def ask_destination_cities():
         question = """
         Please tell us the cities that you are considering for your trip (up to five cities). Separate your input with a comma, for example, "Tirana, Paris". 
@@ -253,13 +244,6 @@ def run_prolog(parameters):
         print("\nQuick order of cities based on your preferences:\n")
         for indx, city in enumerate(overall_results):
             print(f"{indx + 1}. {city[1].title()}")
-        # print("\nDetailed Results:")
-        # for city in overall_results:
-        #     print(f"\n-------------- {city[1].title()} --------------")
-        #     print(f"We certain with {outcome_data[city[1]]['Overall']}% that you will feel comfortable traveling to {city[1].title()}")
-        #     print(f"- Climate Factors                : {outcome_data[city[1]]['Climate']}%")
-        #     print(f"- Political and Economic Factors : {outcome_data[city[1]]['PE']}%")
-        #     print(f"- Infrastructure Factors         : {outcome_data[city[1]]['Infra']}%")
 
     write_py.arity = 1
     read_py.arity = 3
@@ -274,9 +258,6 @@ def run_prolog(parameters):
     prolog.consult(name) # open the KB for consulting
     os.unlink(name) # Remove the temporary file
 
-    # call(retractall(known))
-
-    # print("msg_welcome")
     with open('prolog_api/prolog_engine/current_available_cities.csv', 'r') as csvfile:
         current_available_cities = list(csv.reader(csvfile))[0]
 
@@ -290,13 +271,12 @@ def run_prolog(parameters):
     cities_destinations = current_available_cities
     analysis_outcome = {}
     overall_results = []
-    # print(cities_destinations)
 
+    # Assess the avaliable cities in the dataset
     for city_choice in cities_destinations:
         city_choice = city_choice.lower()
         go_to = [s for s in prolog.query(f"recommend({city_choice}, Proability).", maxresult=1)]
         if data_needed:
-            # print("Data Needed :", output)
             globals().update(empty_vars)
             return output
         climate = [s for s in prolog.query(f"suitable({city_choice}, climate, C).", maxresult=1)]
