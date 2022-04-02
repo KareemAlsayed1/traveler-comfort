@@ -1,9 +1,11 @@
+// Importing Libraries and components
 import React, { useState} from 'react';
 import RingLoader from "react-spinners/RingLoader";
 import MapChart from "./MapChart";
 import ReactTooltip from "react-tooltip";
 
 export default function App() {
+	// Creating useState with variables to dynamically change the components
 	const [currentQuestion, setCurrentQuestion] = useState({
 		name : "",
 		questionText: "",
@@ -23,11 +25,9 @@ export default function App() {
 		Country:"",
 	});
 
-
+	// This function sends an API request when a question is answered
 	const handleAnswerOptionClick = (data) => {
 		setLoading(true);
-		// console.log(currentQuestion);
-		// data["questionName"] = currentQuestion.name;
 		const fetchAPI = '/questions/next-question/';
 		fetch(fetchAPI, {
 			method: 'POST',
@@ -43,7 +43,6 @@ export default function App() {
 				setShowResults(false);
 			  } else if (data["data"]["type"] === "results"){
 				setResultsData(data["data"]["data"][0]);
-				console.log(data["data"]["data"][0]);
 				setShowResults(true);
 			  }
 		}).finally(() => {
@@ -51,12 +50,15 @@ export default function App() {
 			setLoading(false);
 		});
 	};
-
+	
+	// This function sends an API request when "Let's get started" button is clicked
 	const handleStartClick = () =>{
 		setLoading(true);
 		setShowIntroduction(false);
 		getStarted();
 	}
+
+	// Getting started API Request
 	const getStarted = () => {
 		const fetchAPI = '/questions/next-question';
 		fetch(fetchAPI, {method: 'DELETE'})
@@ -67,7 +69,6 @@ export default function App() {
 				setShowResults(false);
 			  } else if (data["data"]["type"] === "results"){
 				setResultsData(data["data"]["data"][0]);
-				console.log(data["data"]["data"][0]);
 				setShowResults(true);
 			  }
 		}).finally(() => {
@@ -75,12 +76,16 @@ export default function App() {
 			setLoading(false);
 		});
 	}
+
+	// If statement to determine if it is results or a question
 	if (showResults){
 		return (
+			//Return an interactive map if results are returned
 			<div>
 				<MapChart data={resultsData} setTooltipContent={setTabContent}/>
 				{
 					tabContent ? (
+						// Adding ToolTip component for more details
 					<ReactTooltip multiline="true">
 						Location          				: {tabContent.City_name.charAt(0).toUpperCase() + tabContent.City_name.slice(1)}, {tabContent.Country}
 				   <br/>Overall Assessment				: {tabContent.Overall}%
@@ -95,10 +100,12 @@ export default function App() {
 			</div>
 		)
 	} else {
+		// Return a question card if more information is needed
 		return (
 			<div className='questions-body'>
 			<div className='app'>
-				{showIntroduction  ? (
+				{ // check if introduction was passed or not
+				showIntroduction  ? (
 					<div className='introduction-section'>
 						<div className='introduction-title'>
 							Traveling Recommendations Expert System
@@ -110,13 +117,15 @@ export default function App() {
 							<span>Let's get started!</span>
 						</button> 
 					</div>
-				) : ( loading ? (
+				) : ( // Check if the API backend is still loading or not
+					loading ? (
 					<>
 						<div className='loading-section'>
 							<RingLoader color={"#FFFFFF"} loading={loading} size={120} css={"align-self: center;"}/>
 							<div className="loading-text">Running our AI Models!</div>
 						</div>
 					</> ) : (
+						// Return the question card if more info is needed
 						<>
 						<div className='question-section'>
 							<div className='question-count'>

@@ -1,3 +1,4 @@
+// Importing Libraries and components
 import React,  { memo } from "react";
 import {
   ComposableMap,
@@ -5,17 +6,18 @@ import {
   Geography,
   ZoomableGroup
 } from "react-simple-maps";
-
 import { scaleLinear } from "d3-scale";
 
-
+// Getting the geographic information about the world map
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
+// Determine the color scale of the interactive map
 const colorScale = scaleLinear()
   .domain([50, 100])
   .range(["#ff0000", "#4fff5b"]);
 
+// Create the main mapchart component by setting the default view for Europe
 const MapChart = (props) => {
   return (
     <ComposableMap
@@ -27,7 +29,6 @@ const MapChart = (props) => {
       height={440}
       data-tip=""
     >
-        {console.log(props)}
         <ZoomableGroup zoom={1}>
       {(
         <Geographies geography={geoUrl}>
