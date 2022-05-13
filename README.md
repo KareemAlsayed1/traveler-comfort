@@ -16,6 +16,9 @@ Each of the primary assessment areas includes subfactors to give an inclusive ov
     - Purchasing Power
     - Civil & Political Freedom Index
 
+![image](https://user-images.githubusercontent.com/44312799/168241905-bc2a4de7-5587-4895-a6b4-cab483f63a4f.png)
+
+
 The following illustration shows the architecture of the project. Starting from the user interface, the traveler will interact with a website that asks questions to build a traveler profile. Also, that website would present the results in the form of an interactive world map. The frontend is developed using ReactJS, and it communicates with the Backend (which is built using Django Framework) through RESTful APIs. The backend has two main functionalities: tracking the user sessions and scheduling the Prolog functions (by communicating with the task scheduler server). The servers are running Prolog on Pyswib, so it is not a thread-safe function. Thus, the task scheduler utilizes multiprocessing to run the inference engine. Once the inference engine is running, it consults the knowledge base built based on the destinations data and predicate logic. The inference engine would either ask the user more questions or return the assessment results based on the input.  
 
 The results would be presented as a broken-down analysis of each main area. The outcome would be a percentage that shows how much the system is certain that the traveler would feel comfortable under certain factor groups. These results would be reflected on a color-coded map for the user. 
